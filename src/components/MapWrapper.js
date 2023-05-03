@@ -258,7 +258,7 @@ const vector = new VectorLayer({
 
     const geotiffLayer = new ImageLayer({
       source: new ImageWMS({
-        url: 'http://ourindus.com/geoserver/USBRL-WS/wms?',
+        url: 'https://ourindus.com/geoserver/USBRL-WS/wms?',
         params: {
           'LAYERS': 'USBRL-WS:USBRL_Base_Image_KB',
           'FORMAT': 'image/png',          
