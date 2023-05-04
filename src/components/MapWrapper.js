@@ -261,7 +261,7 @@ const vector = new VectorLayer({
         url: 'https://ourindus.com/geoserver/Sub_rnd/wms?',
         params: {
           'LAYERS': 'Sub_rnd:Orthomosaic',
-          'FORMAT': 'image/jpeg',          
+          'FORMAT': 'image/png',          
         },
         ratio: 1,
         projection: 'EPSG:4326'
