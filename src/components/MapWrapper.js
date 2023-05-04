@@ -250,7 +250,7 @@ const vector = new VectorLayer({
       ],
       view: new View({
         projection: 'EPSG:4326',
-        center: [75.09880, 33.25211],
+        center: [72.748597, 18.494299],
         zoom: 11
       }),
       controls: []
@@ -260,7 +260,7 @@ const vector = new VectorLayer({
       source: new ImageWMS({
         url: 'https://ourindus.com/geoserver/USBRL-WS/wms?',
         params: {
-          'LAYERS': 'USBRL-WS:USBRL_Base_Image_KB',
+          'LAYERS': 'Sub_rnd:Orthomosaic',
           'FORMAT': 'image/png',          
         },
         ratio: 1,
