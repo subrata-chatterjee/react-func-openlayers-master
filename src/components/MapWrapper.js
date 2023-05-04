@@ -250,15 +250,15 @@ const vector = new VectorLayer({
       ],
       view: new View({
         projection: 'EPSG:4326',
-        center: [72.748597, 18.494299],
-        zoom: 11
+        center: [73.74861, 18.49431],
+        zoom: 18
       }),
       controls: []
     })
 
     const geotiffLayer = new ImageLayer({
       source: new ImageWMS({
-        url: 'https://ourindus.com/geoserver/USBRL-WS/wms?',
+        url: 'https://ourindus.com/geoserver/Sub_rnd/wms?',
         params: {
           'LAYERS': 'Sub_rnd:Orthomosaic',
           'FORMAT': 'image/png',          
