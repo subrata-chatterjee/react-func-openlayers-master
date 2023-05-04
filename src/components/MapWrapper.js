@@ -264,7 +264,6 @@ const vector = new VectorLayer({
           'FORMAT': 'image/png',          
         },
         ratio: 1,
-        serverType: 'geoserver',
         projection: 'EPSG:4326'
       })
     });
