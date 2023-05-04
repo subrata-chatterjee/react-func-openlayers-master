@@ -25,6 +25,7 @@ import {LineString, Point} from 'ol/geom';
 import {getArea, getLength} from 'ol/sphere';
 import { Image as ImageLayer } from 'ol/layer';
 import { ImageWMS ,OSM} from 'ol/source';
+import Measure from './measure';
 
 function MapWrapper(props) {
 
@@ -32,9 +33,7 @@ function MapWrapper(props) {
   const [ map, setMap ] = useState()
   const [ featuresLayer, setFeaturesLayer ] = useState()
   const [ selectedCoord , setSelectedCoord ] = useState()
-  const [ scaleLine , setScaleLine ] = useState()
-  const [measurement, setMeasurement] = useState('');
-const [totalLength, setTotalLength] = useState(0);
+
 
   // pull refs
   const mapElement = useRef()
@@ -339,35 +338,22 @@ initialMap.addLayer(geotiffLayer);
     
     const clickedCoord = mapRef.current.getCoordinateFromPixel(event.pixel);
 
-    // transform coord to EPSG 4326 standard Lat Long
-    const transormedCoord = transform(clickedCoord, 'EPSG:4326', 'EPSG:3857')
-
-    // set React state
+      // set React state
     setSelectedCoord( clickedCoord )
     
   }
 
   // render component
   return (      
-    <div>
-      <form>
-      <label for="type">Measurement type &nbsp;</label>
-      <select id="type">
-        <option value="LineString" >Length (LineString)</option>
-        <option value="Polygon">Area (Polygon)</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <label for="segments">Show segment lengths:&nbsp;</label>
-      <input type="checkbox" id="segments" checked />
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <label for="clear">Clear previous measure:&nbsp;</label>
-      <input type="checkbox" id="clear"  />
-    </form>
-      <div ref={mapElement} className="map-container"></div>
-      
-      <div className="clicked-coord-label">
+    <div>      
+      <div ref={mapElement} className="map-container">
+      <Measure/>
+      <div className="clicked-coord-label" style={{ position: "absolute", top: "80px", right: "6px", zIndex:1}}>
         <p>{ (selectedCoord) ? toStringXY(selectedCoord, 5) : '' }</p>
       </div>
+      </div>
+      
+      
     </div>
   ) 
 

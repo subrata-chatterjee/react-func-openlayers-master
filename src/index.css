@@ -42,25 +42,5 @@ code {
   color: #fff;
 }
 
-.measurement {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 14px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
 
-.total-length {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 14px;
-  box-shadow: 0 1 }
+

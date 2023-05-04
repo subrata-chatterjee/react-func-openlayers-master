@@ -8,6 +8,7 @@ import GeoJSON from 'ol/format/GeoJSON'
 
 // components
 import MapWrapper from './components/MapWrapper'
+import Navbar from './components/navbar';
 
 function App() {
   
@@ -42,7 +43,7 @@ function App() {
     <div className="App">
       
       
-      
+      <Navbar/>
       <MapWrapper features={features} />
 
     </div>
