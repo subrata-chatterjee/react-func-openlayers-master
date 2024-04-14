@@ -7,6 +7,7 @@ import View from 'ol/View'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
+import TileWMS from 'ol/source/TileWMS';
 import XYZ from 'ol/source/XYZ'
 import {transform} from 'ol/proj'
 import {toStringXY} from 'ol/coordinate';
@@ -245,17 +246,26 @@ const vector = new VectorLayer({
         new TileLayer({
           source: new OSM(),
         }),       
-
+        new TileLayer({
+          
+          source: new TileWMS({
+            extent: [-13884991, 2870341, -7455066, 6338219],
+            url: 'https://ahocevar.com/geoserver/wms',
+            params: {'LAYERS': 'topp:states', 'TILED': true},
+            serverType: 'geoserver',
+            // Countries have transparency, so do not fade tiles:
+            transition: 0,
+          }),
+        }),
       ],
       view: new View({
-        projection: 'EPSG:4326',
-        center: [73.74861, 18.49431],
-        zoom: 18
+        center: [-10997148, 4569099],
+        zoom: 4
       }),
       controls: []
     })
 
-    const geotiffLayer = new ImageLayer({
+    /*const geotiffLayer = new ImageLayer({
       source: new ImageWMS({
         url: 'https://ourindus.com/geoserver/Sub_rnd/wms?',
         params: {
@@ -265,9 +275,7 @@ const vector = new VectorLayer({
         ratio: 1,
         projection: 'EPSG:4326'
       })
-    });
-    
-initialMap.addLayer(geotiffLayer);
+    });*/
 
     // set map onclick handler
     initialMap.on('click', handleMapClick)
